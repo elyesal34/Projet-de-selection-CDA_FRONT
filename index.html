@@ -24,6 +24,7 @@
     const answerEl = document.getElementById("answer");
 
     jokeBtn.addEventListener("click", () => {
+      // Appel à l'API pour récupérer une blague
       fetch("https://api.carambar.fr/jokes/random")
         .then(response => response.json())
         .then(data => {
@@ -35,5 +36,6 @@
           questionEl.textContent = "Oups, une erreur est survenue !";
           answerEl.textContent = "";
         });
+        
     });
   });
