@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Carambar & Co - Blagues</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🤣 Blagues Carambar</h1>
+    <button id="jokeBtn">Nouvelle Blague</button>
+    <div id="jokeBox">
+      <p id="question"></p>
+      <p id="answer"></p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const jokeBtn = document.getElementById("jokeBtn");
+    const questionEl = document.getElementById("question");
+    const answerEl = document.getElementById("answer");
+
+    jokeBtn.addEventListener("click", () => {
+      fetch("https://api.carambar.fr/jokes/random")
+        .then(response => response.json())
+        .then(data => {
+          questionEl.textContent = data.question;
+          answerEl.textContent = data.answer;
+        })
+        .catch(error => {
+          console.error("Erreur lors de la récupération de la blague :", error);
+          questionEl.textContent = "Oups, une erreur est survenue !";
+          answerEl.textContent = "";
+        });
+    });
+  });

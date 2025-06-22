@@ -1,0 +1,19 @@
+body {
+  font-family: Arial;
+  text-align: center;
+  margin-top: 50px;
+}
+.container {
+  padding: 20px;
+}
+button {
+  padding: 10px 20px;
+  font-size: 18px;
+}
+#jokeBox {
+  margin-top: 30px;
+}
+#jokeBox p {
+  font-size: 24px;
+  color: #333;
+}
