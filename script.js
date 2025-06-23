@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   jokeBtn.addEventListener("click", async () => {
     try {
-      const response = await fetch("https://localhost:3000/index.html");
+      const response = await fetch("https://carambar-api-436f.onrender.com/api/blagues/random");
       if (!response.ok) throw new Error("Erreur lors de la récupération de la blague");
       const joke = await response.json();
       questionElem.textContent = joke.question;
