@@ -17,25 +17,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const jokeBtn = document.getElementById("jokeBtn");
-    const questionEl = document.getElementById("question");
-    const answerEl = document.getElementById("answer");
-
-    jokeBtn.addEventListener("click", () => {
-      // Appel à l'API pour récupérer une blague
-      fetch("https://api.carambar.fr/jokes/random")
-        .then(response => response.json())
-        .then(data => {
-          questionEl.textContent = data.question;
-          answerEl.textContent = data.answer;
-        })
-        .catch(error => {
-          console.error("Erreur lors de la récupération de la blague :", error);
-          questionEl.textContent = "Oups, une erreur est survenue !";
-          answerEl.textContent = "";
-        });
-        
-    });
-  });
